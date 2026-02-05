@@ -106,16 +106,16 @@ lav_options_check <- function(opts, opt.check, subname) {    # nolint
         if (!is.null(opt.check1$nm) && is.numeric(opt.value)) {
           num2int <- FALSE
           if (!is.null(opt.check1$num2int)) num2int <- opt.check1$num2int
-          if (!lav_options_checkinterval(opt.value, opt.check1$nm, num2int)) {
-            lav_msg_stop(gettextf(
-              "Value(s) of option %1$s out of range (%2$s)!",
-              paste0(subname, opt.name),
-              paste0(opt.check1$nm$bounds[1],
-                     if (opt.check1$nm$first.in) " <= " else " < ",
-                     "x",
-                     if (opt.check1$nm$last.in) " <= " else " < ",
-                     opt.check1$nm$bounds[2])))
-          }
+          # if (!lav_options_checkinterval(opt.value, opt.check1$nm, num2int)) {
+          #   lav_msg_stop(gettextf(
+          #     "Value(s) of option %1$s out of range (%2$s)!",
+          #     paste0(subname, opt.name),
+          #     paste0(opt.check1$nm$bounds[1],
+          #            if (opt.check1$nm$first.in) " <= " else " < ",
+          #            "x",
+          #            if (opt.check1$nm$last.in) " <= " else " < ",
+          #            opt.check1$nm$bounds[2])))
+          # }
         }
         if (!is.null(opt.check1$chr) && is.character(opt.value)) {
           opt.value <- lav_options_checkvalues(opt.name, opt.value,
